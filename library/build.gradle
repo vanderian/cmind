@@ -34,8 +34,8 @@ dependencies {
     compile deps.calligraphy
 
     compile deps.dagger
-    apt deps.dagger_compiler
     compile deps.autodagger
+    apt deps.dagger_compiler
     apt deps.autodagger_compiler
     provided deps.javax_annotations
 
@@ -44,7 +44,7 @@ dependencies {
     compile deps.rxbindings_lib
 
     compile deps.autoparcel
-    apt deps.apt_autoparcel
+    apt deps.autoparcel_compiler
 
     compile deps.retrofit
     compile deps.retrofit_rxjava

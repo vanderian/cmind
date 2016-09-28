@@ -20,7 +20,7 @@ ext.deps = [
         calligraphy                 : 'uk.co.chrisjenx:calligraphy:2.2.0',
         picasso                     : 'com.squareup.picasso:picasso:2.5.2',
         autoparcel                  : 'me.tatarka:auto-parcel-gson:0.1',
-        apt_autoparcel              : 'me.tatarka:auto-parcel-gson-processor:0.1',
+        autoparcel_compiler         : 'me.tatarka:auto-parcel-gson-processor:0.1',
 
         rxbindings_lib              : 'com.jakewharton.rxbinding:rxbinding:0.4.0',
         rxbindings                  : 'com.jakewharton.rxbinding:rxbinding-kotlin:0.4.0',
@@ -52,6 +52,22 @@ ext.deps = [
         okhttp                      : 'com.squareup.okhttp3:okhttp:3.3.1',
         okhttp_logging              : 'com.squareup.okhttp3:logging-interceptor:3.3.1',
         okhttp_downloader           : 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2',
+
+        leakcanary                  : 'com.squareup.leakcanary:leakcanary-android:1.4-beta2',
+        stetho                      : 'com.facebook.stetho:stetho:1.3.1',
+        stetho_okhttp               : 'com.facebook.stetho:stetho-okhttp3:1.3.1',
+        madge                       : 'com.jakewharton.madge:madge:1.1.3',
+        phoenix                     : 'com.jakewharton:process-phoenix:1.0.2',
+        scalpel                     : 'com.jakewharton.scalpel:scalpel:1.1.2',
+        telescope                   : 'com.mattprecious.telescope:telescope:2.1.0',
+        dd                          : 'io.palaima.debugdrawer:debugdrawer:0.7.0',
+        dd_actions                  : 'io.palaima.debugdrawer:debugdrawer-actions:0.7.0',
+        dd_timber                   : 'io.palaima.debugdrawer:debugdrawer-timber:0.7.0',
+        dd_scalpel                  : 'io.palaima.debugdrawer:debugdrawer-scalpel:0.7.0',
+        dd_picasso                  : 'io.palaima.debugdrawer:debugdrawer-picasso:0.7.0',
+        dd_okhttp                   : 'io.palaima.debugdrawer:debugdrawer-okhttp3:0.7.0',
+        dd_commons                  : 'io.palaima.debugdrawer:debugdrawer-commons:0.7.0',
+
 ]
 
 ext.minSdkVersion = 16
