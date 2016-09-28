@@ -1,0 +1,99 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+def support_version = '24.2.1'
+ext.deps = [
+        appcompat_v7                : "com.android.support:appcompat-v7:$support_version",
+        support_v4                  : "com.android.support:support-v4:$support_version",
+        design                      : "com.android.support:design:$support_version",
+        recyclerview                : "com.android.support:recyclerview-v7:$support_version",
+        cardview                    : "com.android.support:cardview-v7:$support_version",
+        percent                     : "com.android.support:percent:$support_version",
+        preference                  : "com.android.support:preference-v7:$support_version",
+
+        timber                      : 'com.jakewharton.timber:timber:4.1.2',
+        butterknife                 : 'com.jakewharton:butterknife:8.4.0',
+        butterknife_compiler        : 'com.jakewharton:butterknife-compiler:8.4.0',
+        kotterknife                 : 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT',
+        junit                       : 'junit:junit:4.12',
+        espresso                    : 'com.android.support.test.espresso:espresso-core:2.2.2',
+        jetpack_bindings_preferences: 'com.github.vmironov.jetpack:jetpack-bindings-preferences:0.14.2',
+        gson                        : 'com.google.code.gson:gson:2.5',
+        calligraphy                 : 'uk.co.chrisjenx:calligraphy:2.2.0',
+        picasso                     : 'com.squareup.picasso:picasso:2.5.2',
+        autoparcel                  : 'me.tatarka:auto-parcel-gson:0.1',
+        autoparcel_compiler         : 'me.tatarka:auto-parcel-gson-processor:0.1',
+
+        rxbindings_lib              : 'com.jakewharton.rxbinding:rxbinding:0.4.0',
+        rxbindings                  : 'com.jakewharton.rxbinding:rxbinding-kotlin:0.4.0',
+        rxbindings_support          : 'com.jakewharton.rxbinding:rxbinding-support-v4-kotlin:0.4.0',
+        rxbindings_appcompat        : 'com.jakewharton.rxbinding:rxbinding-appcompat-v7-kotlin:0.4.0',
+        rxbindings_design           : 'com.jakewharton.rxbinding:rxbinding-design-kotlin:0.4.0',
+        rxbindings_recyclerview     : 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7-kotlin:0.4.0',
+        rxjava                      : 'io.reactivex:rxjava:1.1.6',
+        rxjava_kotlin               : 'io.reactivex:rxkotlin:0.40.1',
+        rxjava_kotlin_collections   : 'moe.pine:rxkotlin-collections:0.0.6',
+        rxjava_android              : 'io.reactivex:rxandroid:1.2.1',
+        rxjava_extras               : 'com.github.davidmoten:rxjava-extras:0.7',
+        rxpermissions               : 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0',
+
+        javax_annotations           : 'javax.annotation:jsr250-api:1.0',
+        dagger                      : 'com.google.dagger:dagger:2.5',
+        dagger_compiler             : 'com.google.dagger:dagger-compiler:2.5',
+        dagger_producers            : 'com.google.dagger:dagger-producers:2.5',
+        autodagger                  : 'com.github.lukaspili.autodagger2:autodagger2:1.1',
+        autodagger_compiler         : 'com.github.lukaspili.autodagger2:autodagger2-compiler:1.1',
+        autodagger2                 : 'digital.thirtyseventy.auto-component:library:1.0.1-SNAPSHOT',
+        autodagger2_compiler        : 'digital.thirtyseventy.auto-component:compiler:1.0.1-SNAPSHOT',
+        autodagger2_compiler_utils  : 'digital.thirtyseventy.auto-component:compiler-utils:1.0.1-SNAPSHOT',
+
+        retrofit                    : 'com.squareup.retrofit2:retrofit:2.1.0',
+        retrofit_gson               : 'com.squareup.retrofit2:converter-gson:2.1.0',
+        retrofit_rxjava             : 'com.squareup.retrofit2:adapter-rxjava:2.1.0',
+        retrofit_mock               : 'com.squareup.retrofit2:retrofit-mock:2.1.0',
+        okhttp                      : 'com.squareup.okhttp3:okhttp:3.3.1',
+        okhttp_logging              : 'com.squareup.okhttp3:logging-interceptor:3.3.1',
+        okhttp_downloader           : 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2',
+
+        leakcanary                  : 'com.squareup.leakcanary:leakcanary-android:1.4-beta2',
+        stetho                      : 'com.facebook.stetho:stetho:1.3.1',
+        stetho_okhttp               : 'com.facebook.stetho:stetho-okhttp3:1.3.1',
+        madge                       : 'com.jakewharton.madge:madge:1.1.3',
+        phoenix                     : 'com.jakewharton:process-phoenix:1.0.2',
+        scalpel                     : 'com.jakewharton.scalpel:scalpel:1.1.2',
+        telescope                   : 'com.mattprecious.telescope:telescope:2.1.0',
+        dd                          : 'io.palaima.debugdrawer:debugdrawer:0.7.0',
+        dd_actions                  : 'io.palaima.debugdrawer:debugdrawer-actions:0.7.0',
+        dd_timber                   : 'io.palaima.debugdrawer:debugdrawer-timber:0.7.0',
+        dd_scalpel                  : 'io.palaima.debugdrawer:debugdrawer-scalpel:0.7.0',
+        dd_picasso                  : 'io.palaima.debugdrawer:debugdrawer-picasso:0.7.0',
+        dd_okhttp                   : 'io.palaima.debugdrawer:debugdrawer-okhttp3:0.7.0',
+        dd_commons                  : 'io.palaima.debugdrawer:debugdrawer-commons:0.7.0',
+
+]
+
+ext.minSdkVersion = 16
+ext.targetSdkVersion = 24
+ext.compileSdkVersion = 24
+ext.buildToolsVersion = "24.0.2"
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        classpath 'com.fernandocejas.frodo:frodo-plugin:0.8.1'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
