@@ -11,6 +11,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.fernandocejas.frodo'
 apply plugin: 'com.neenbedankt.android-apt'
@@ -49,8 +50,5 @@ dependencies {
     compile deps.retrofit
     compile deps.retrofit_rxjava
     compile deps.okhttp
-}
-
-repositories {
-    mavenCentral()
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

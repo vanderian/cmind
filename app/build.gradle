@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.fernandocejas.frodo'
 apply plugin: 'com.neenbedankt.android-apt'
@@ -45,6 +46,7 @@ dependencies {
     compile deps.retrofit_gson
     compile deps.retrofit_mock
     compile deps.okhttp_logging
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 repositories {

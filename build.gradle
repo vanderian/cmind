@@ -76,6 +76,7 @@ ext.compileSdkVersion = 24
 ext.buildToolsVersion = "24.0.2"
 
 buildscript {
+    ext.kotlin_version = '1.0.4'
     repositories {
         jcenter()
         mavenCentral()
@@ -85,12 +86,14 @@ buildscript {
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
         classpath 'com.fernandocejas.frodo:frodo-plugin:0.8.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
     }
 }
 
