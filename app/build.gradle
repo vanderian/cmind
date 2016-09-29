@@ -22,6 +22,11 @@ dependencies {
 
     compile deps.picasso
     compile deps.kotterknife
+    compile deps.rxbindings
+    compile deps.rxbindings_support
+    compile deps.rxbindings_appcompat
+    compile deps.rxbindings_design
+    compile deps.rxbindings_recyclerview
 
 //    apt deps.dagger_compiler
 //    apt deps.autodagger_compiler
