@@ -55,7 +55,8 @@ public class ObservableAdapter<T> extends RecyclerView.Adapter<ObservableAdapter
     @SuppressWarnings("unchecked")
     @Override public void onViewAttachedToWindow(ViewHolder<T> holder) {
         holder.subscriptions = new CompositeSubscription();
-        holder.subscriptions.add(RxView.clicks(holder.itemView.getView())
+        holder.subscriptions.add(RxView.clicks(holder.itemView.getView()).flatMap(e -> Observable.concat(
+                Observable.just(e)
                         .filter(ev -> selectionMode != SelectionMode.NONE)
                         .filter(ev -> selectionMode != SelectionMode.SINGLE_MANUAL)
                         .map(ev -> holder.pos)
@@ -66,11 +67,13 @@ public class ObservableAdapter<T> extends RecyclerView.Adapter<ObservableAdapter
                             }
                         })
 //                        selects the new position, or unselect if exist
-                        .subscribe(this::toggleSelection)
+                        .doOnNext(this::toggleSelection),
+                Observable.just(e).map(ev -> holder).doOnEach(itemClicked)))
+                        .subscribe()
         );
 
         //need to be after selection is marked
-        holder.subscriptions.add(RxView.clicks(holder.itemView.getView()).map(ev -> holder).subscribe(itemClicked));
+//        holder.subscriptions.add(RxView.clicks(holder.itemView.getView()).map(ev -> holder).subscribe(itemClicked));
 
         if (holder.itemView.getObjectObservable() != null) {
             holder.subscriptions.add(holder.itemView.getObjectObservable().map(ev -> new ObjectEvent<T>(holder, ev)).subscribe(itemEvent));
