@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">cmind</string>
+
+    <string name="label_splash">Splash</string>
+    <string name="label_content">Content</string>
+
+    <string name="nav_content">app://sk.vander/content</string>
 </resources>

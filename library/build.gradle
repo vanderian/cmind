@@ -1,20 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-        classpath 'com.fernandocejas.frodo:frodo-plugin:0.8.1'
-    }
-}
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.fernandocejas.frodo'
-apply plugin: 'com.neenbedankt.android-apt'
 apply from: "../android.gradle"
 
 dependencies {
@@ -30,25 +17,37 @@ dependencies {
 
     compile deps.timber
     compile deps.gson
-    compile deps.butterknife
-    apt deps.butterknife_compiler
+    compile deps.kotterknife
     compile deps.calligraphy
 
     compile deps.dagger
     compile deps.autodagger
-    apt deps.dagger_compiler
-    apt deps.autodagger_compiler
+
+    kapt deps.dagger_compiler
+    kapt deps.autodagger_compiler
     provided deps.javax_annotations
 
     compile deps.rxjava
     compile deps.rxjava_android
+    compile deps.rxjava_kotlin
     compile deps.rxbindings_lib
 
     compile deps.autoparcel
-    apt deps.autoparcel_compiler
+    kapt deps.autoparcel_compiler
 
     compile deps.retrofit
     compile deps.retrofit_rxjava
     compile deps.okhttp
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+kapt {
+    generateStubs = true
+}
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }

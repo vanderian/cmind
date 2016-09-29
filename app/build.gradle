@@ -1,8 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.fernandocejas.frodo'
-apply plugin: 'com.neenbedankt.android-apt'
 apply from: "../android.gradle"
 
 android {
@@ -23,11 +21,16 @@ dependencies {
     compile deps.appcompat_v7
 
     compile deps.picasso
+    compile deps.kotterknife
 
-    apt deps.dagger_compiler
-    apt deps.autodagger_compiler
-    apt deps.autoparcel_compiler
-    apt deps.butterknife_compiler
+//    apt deps.dagger_compiler
+//    apt deps.autodagger_compiler
+//    apt deps.autoparcel_compiler
+//    apt deps.butterknife_compiler
+
+    kapt deps.dagger_compiler
+    kapt deps.autodagger_compiler
+    provided deps.javax_annotations
 
     debugCompile deps.stetho
     debugCompile deps.stetho_okhttp
@@ -49,6 +52,6 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
-repositories {
-    mavenCentral()
+kapt {
+    generateStubs = true
 }

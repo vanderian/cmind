@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest package="sk.vander.cmind"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -8,6 +9,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:name=".ui.SplashActivity"
+            android:label="@string/label_splash"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ContentActivity"
+            android:label="@string/label_content"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:host="sk.vander"
+                    android:path="/content"
+                    android:scheme="app"/>
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
