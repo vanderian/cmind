@@ -17,6 +17,10 @@ interface AppContainer {
     /**
      * An [AppContainer] which returns the normal activity content view.
      */
-    val DEFAULT = { activity: Activity -> activity.findViewById(android.R.id.content) }
+    val DEFAULT = object : AppContainer {
+      override fun get(activity: Activity): ViewGroup {
+        return activity.findViewById(android.R.id.content) as ViewGroup
+      }
+    }
   }
 }

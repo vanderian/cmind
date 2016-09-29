@@ -37,7 +37,8 @@ class DebugApiModule {
   @ApplicationScope @Provides fun provideOkHttpClient(cache: Cache,
                                                                loggingInterceptor: HttpLoggingInterceptor,
                                                                @ForceCacheInterceptor forceCache: Interceptor): OkHttpClient {
-    return OkHttpClient.Builder().addNetworkInterceptor(StethoInterceptor()).addInterceptor(loggingInterceptor)//        .addNetworkInterceptor(forceCache)
+    return OkHttpClient.Builder()
+            .addNetworkInterceptor(StethoInterceptor()).addInterceptor(loggingInterceptor)//        .addNetworkInterceptor(forceCache)
         .cache(cache).build()
   }
 
