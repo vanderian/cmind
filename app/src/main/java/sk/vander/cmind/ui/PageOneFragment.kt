@@ -4,9 +4,11 @@ import android.net.Uri
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
+import android.widget.Toast
 import autodagger.AutoInjector
 import butterknife.bindView
 import com.jakewharton.rxbinding.view.clicks
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import sk.vander.cmind.R
 import sk.vander.library.BaseFragment
@@ -49,8 +51,16 @@ class PageOneFragment : BaseFragment() {
 
     subscription.add(
         imageView.clicks().subscribe {
+          picasso.cancelRequest(imageView)
           picasso.invalidate(randomImage)
-          picasso.load(randomImage).into(imageView)
+          picasso.load(randomImage).into(imageView, object : Callback {
+            override fun onSuccess() {
+            }
+
+            override fun onError() {
+              Toast.makeText(activity, "error loading image from $randomImage", Toast.LENGTH_SHORT).show()
+            }
+          })
         }
     )
   }
