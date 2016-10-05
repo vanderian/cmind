@@ -18,14 +18,15 @@ class NumbersProvider @Inject constructor() {
     return Observable.just(listOf("one 1 two2", "three 3 four 4", "ten 1 nine 0"))
   }
 
-  fun number() {
+  fun number(): String {
     val random = Random()
     val len = random.nextInt(20) + 1
-    1.rangeTo(len).map { random.nextInt(10) }.joinToString()
+    val num = 1.rangeTo(len).map { random.nextInt(10) }.joinToString()
+    return num
   }
 
-  fun makeString(number: Long) {
-
+  fun makeString(number: String): String {
+    return ""
   }
 
 }
