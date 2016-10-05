@@ -35,7 +35,7 @@ class SplashActivity : BaseActivity() {
     subscription.add(
         Observable.timer(5, TimeUnit.SECONDS)
             .map { ActivityUriScreen.withUri(Uri.parse(getString(R.string.nav_content))) }
-            .subscribe { screenSwitcher.open(it) }
+            .subscribe { screenSwitcher.open(it, true) }
     )
   }
 
