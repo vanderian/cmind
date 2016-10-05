@@ -21,4 +21,11 @@
         tools:layout="@layout/fragment_page_one"
         />
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="sk.vander.cmind.ui.PageTwoFragment"
+        tools:layout="@layout/fragment_page_two"
+        />
+
 </ViewAnimator>

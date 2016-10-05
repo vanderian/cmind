@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sk.vander.cmind.ui.adapter.NumberItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    >
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:text="one 1 two 2 three 3"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/number"
+        android:background="@drawable/divider"
+        />
+
+</sk.vander.cmind.ui.adapter.NumberItemView>

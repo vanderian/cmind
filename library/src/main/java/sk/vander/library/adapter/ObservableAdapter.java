@@ -68,7 +68,7 @@ public class ObservableAdapter<T> extends RecyclerView.Adapter<ObservableAdapter
                         })
 //                        selects the new position, or unselect if exist
                         .doOnNext(this::toggleSelection),
-                Observable.just(e).map(ev -> holder).doOnEach(itemClicked)))
+                Observable.just(e).map(ev -> holder).doOnError(itemClicked::onError).doOnNext(itemClicked::onNext)))
                         .subscribe()
         );
 

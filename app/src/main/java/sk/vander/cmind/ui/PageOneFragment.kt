@@ -1,5 +1,6 @@
 package sk.vander.cmind.ui
 
+import android.net.Uri
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
@@ -24,12 +25,13 @@ class PageOneFragment : BaseFragment() {
 
   val randomImage = "https://unsplash.it/800/?random"
   val webView by bindView<WebView>(R.id.web_view)
-  val imageView by bindView<ImageView>(R.id.image_view)
+  val imageView by bindView<ImageView>(R.id.image)
 
   init {
     webClient = object : WebViewClient() {
       override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
-        val next = url.contains("yahoo.com")
+        val next = Uri.parse(url).host.contains("yahoo.com")
+        if (next) ((activity as ContentActivity).animator.showNext())
         return next
       }
     }
