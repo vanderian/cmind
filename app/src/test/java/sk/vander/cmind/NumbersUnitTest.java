@@ -2,9 +2,12 @@ package sk.vander.cmind;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import sk.vander.cmind.data.NumbersProvider;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class NumbersUnitTest {
     NumbersProvider data = new NumbersProvider();
@@ -12,8 +15,8 @@ public class NumbersUnitTest {
     @Test
     public void generation() throws Exception {
         for (int i = 0; i < 10; i++) {
-            String num = data.number();
-            assertTrue(num.length() > 0 && num.length() <= 20);
+            List<Integer> num = data.number();
+            assertTrue(num.size() > 0 && num.size() <= 20);
         }
     }
 
