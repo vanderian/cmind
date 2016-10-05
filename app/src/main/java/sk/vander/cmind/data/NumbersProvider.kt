@@ -26,7 +26,9 @@ class NumbersProvider @Inject constructor() {
   )
 
   fun list() : Observable<List<String>> {
-    return Observable.just(listOf("one 1 two2", "three 3 four 4", "ten 1 nine 0"))
+    val res = 0.rangeTo(100).map { number() }.map { makeString(it) }
+//    return Observable.just(listOf("one 1 two2", "three 3 four 4", "ten 1 nine 0"))
+    return Observable.just(res)
   }
 
   fun number(): List<Int> {

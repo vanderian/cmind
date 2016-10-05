@@ -9,8 +9,9 @@
 
     <TextView
         android:id="@+id/number"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:padding="16dp"
         tools:text="one 1 two 2 three 3"
         />

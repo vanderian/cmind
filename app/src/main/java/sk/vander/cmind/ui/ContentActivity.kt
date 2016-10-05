@@ -1,5 +1,6 @@
 package sk.vander.cmind.ui
 
+import android.os.Bundle
 import android.widget.ViewAnimator
 import autodagger.AutoInjector
 import butterknife.bindView
@@ -24,5 +25,17 @@ class ContentActivity : BaseActivity() {
 
   override fun onInject() {
     DaggerService.getDaggerComponent<DaggerContentActivityComponent>(this).inject(this)
+  }
+
+  override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+    super.onRestoreInstanceState(savedInstanceState)
+    savedInstanceState?.apply {
+      animator.displayedChild = savedInstanceState.getInt("current")
+    }
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    super.onSaveInstanceState(outState)
+    outState.putInt("current", animator.displayedChild)
   }
 }
