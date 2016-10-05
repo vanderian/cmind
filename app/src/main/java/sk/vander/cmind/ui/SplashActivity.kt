@@ -32,6 +32,9 @@ class SplashActivity : BaseActivity() {
 
   override fun onResume() {
     super.onResume()
+
+    assets.list("")[0]
+
     subscription.add(
         Observable.timer(5, TimeUnit.SECONDS)
             .map { ActivityUriScreen.withUri(Uri.parse(getString(R.string.nav_content))) }

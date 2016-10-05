@@ -13,10 +13,11 @@
     >
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:src="@color/amber_300"
+        android:scaleType="centerCrop"
+        android:src="@drawable/images"
         />
 
 </RelativeLayout>

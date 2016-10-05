@@ -1,6 +1,7 @@
 package sk.vander.cmind.ui
 
 import android.net.Uri
+import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
@@ -41,6 +42,14 @@ class PageOneFragment : BaseFragment() {
 
   override fun onInject() {
     DaggerService.getDaggerComponent<ContentActivityComponent>(context).inject(this)
+  }
+
+  override fun onViewStateRestored(savedInstanceState: Bundle?) {
+    super.onViewStateRestored(savedInstanceState)
+    savedInstanceState?.apply {
+      // should load from cache
+      picasso.load(randomImage).into(imageView)
+    }
   }
 
   override fun onResume() {
