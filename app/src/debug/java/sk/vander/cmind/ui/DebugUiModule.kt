@@ -1,11 +1,12 @@
 package sk.vander.cmind.ui
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import sk.vander.cmind.ui.debug.DebugAppContainer
 import sk.vander.library.ActivityHierarchyServer
 import sk.vander.library.AppContainer
-import sk.vander.library.SocketActivityHierarchyServer
+import sk.vander.library.ViewServer
 import sk.vander.library.annotation.ActivityScreenSwitcherServer
 import sk.vander.library.annotation.ApplicationScope
 
@@ -21,10 +22,10 @@ class DebugUiModule {
 
   @Provides
   @ApplicationScope
-  fun provideActivityHierarchyServer(@ActivityScreenSwitcherServer server: ActivityHierarchyServer): ActivityHierarchyServer {
+  fun provideActivityHierarchyServer(ctx: Context, @ActivityScreenSwitcherServer server: ActivityHierarchyServer): ActivityHierarchyServer {
     val proxy = ActivityHierarchyServer.Proxy()
     proxy.addServer(server)
-    proxy.addServer(SocketActivityHierarchyServer())
+    proxy.addServer(ViewServer.create(ctx))
     return proxy
   }
 }
